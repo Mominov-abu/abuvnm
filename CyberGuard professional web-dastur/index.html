@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERGUARD // Professional Security Audit Suite</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand">
+                <i class="fa-solid fa-shield-halved brand-icon"></i>
+                <div class="brand-text">
+                    <h1>CYBERGUARD <span class="badge">PRO v3.0</span></h1>
+                    <p>XAVFSIZLIK BO‘YICHA CHUQURLASHTIRILGAN AUDIT VA TAHDIDLAR TO‘G‘RISIDAGI MA’LUMOTLAR</p>
+                </div>
+            </div>
+            <div class="system-status">
+                <span class="pulse-dot"></span>
+                <span class="status-text">CLIENT ENGINE: SECURE</span>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="grid-container">
+            
+            <!-- MODUL 1: Parol Analizatori -->
+            <section class="card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-key"></i> Parol Xavfsizligi Analizi</h2>
+                    <span class="tag">REAL-TIME</span>
+                </div>
+                
+                <div class="input-wrapper">
+                    <input type="password" id="passwordInput" placeholder="Parolni kiriting..." autocomplete="off">
+                    <button type="button" id="toggleVisibility" class="icon-btn"><i class="fa-regular fa-eye"></i></button>
+                </div>
+
+                <div class="strength-meter">
+                    <div class="meter-label">
+                        <span>Xavfsizlik darajasi:</span>
+                        <strong id="strengthText">Kiritilmadi</strong>
+                    </div>
+                    <div class="meter-bar-bg">
+                        <div id="meterBar" class="meter-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div class="crack-time-box">
+                    <div class="crack-title"><i class="fa-solid fa-microchip"></i> Xakerlar buzish vaqti (GPU):</div>
+                    <div id="crackTimeValue" class="crack-time">0 soniya</div>
+                    <p class="crack-subtext">Hujum tezligi: ~10,000,000,000 kalit/soniya</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="m-label">Entropiya</span>
+                        <span id="metricEntropy" class="m-value">0 bit</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="m-label">Uzunlik</span>
+                        <span id="metricLength" class="m-value">0 belgi</span>
+                    </div>
+                </div>
+
+                <ul class="checklist" id="checkList">
+                    <li data-check="length"><i class="fa-solid fa-xmark"></i> Kamida 12 ta belgi</li>
+                    <li data-check="uppercase"><i class="fa-solid fa-xmark"></i> Katta harflar (A-Z)</li>
+                    <li data-check="lowercase"><i class="fa-solid fa-xmark"></i> Kichik harflar (a-z)</li>
+                    <li data-check="numbers"><i class="fa-solid fa-xmark"></i> Raqamlar (0-9)</li>
+                    <li data-check="symbols"><i class="fa-solid fa-xmark"></i> Maxsus belgilar (!@#$%^&*)</li>
+                </ul>
+            </section>
+
+            <!-- MODUL 2: Kiber-Parol Generatori -->
+            <section class="card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Parol Generatori</h2>
+                    <span class="tag">CRYPTO-SAFE</span>
+                </div>
+
+                <div class="generator-output">
+                    <input type="text" id="generatedPassword" readonly placeholder="Tugmani bosing...">
+                    <button id="copyBtn" class="cyber-btn"><i class="fa-regular fa-copy"></i> Nusxalash</button>
+                </div>
+
+                <div class="gen-controls">
+                    <div class="slider-group">
+                        <label>Uzunlik: <strong id="lengthValue">16</strong> belgi</label>
+                        <input type="range" id="lengthSlider" min="8" max="40" value="16">
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="genUpper" checked> Katta harflar</label>
+                        <label><input type="checkbox" id="genLower" checked> Kichik harflar</label>
+                        <label><input type="checkbox" id="genNum" checked> Raqamlar</label>
+                        <label><input type="checkbox" id="genSym" checked> Maxsus belgilar</label>
+                    </div>
+
+                    <button id="generateBtn" class="cyber-btn full"><i class="fa-solid fa-rotate"></i> Yangi Parol Yaratish</button>
+                </div>
+            </section>
+
+            <!-- MODUL 3: Phishing URL Scanner -->
+            <section class="card full-width">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-shield-virus"></i> Phishing & Soxta Havolalar Skaneri</h2>
+                    <span class="tag">THREAT DETECTOR</span>
+                </div>
+                <p class="section-desc">Shubhali yoki noma'lum havolani kiriting. Tizim uni xavfli simvollar, soxta domenlar (typosquatting) va HTTPS mavjudligi bo'yicha tekshiradi.</p>
+
+                <form id="urlForm" class="action-form">
+                    <input type="text" id="urlInput" placeholder="Masalan: https://payme-bonus-uz.com/login" required>
+                    <button type="submit" class="cyber-btn danger"><i class="fa-solid fa-radar"></i> Skanerlash</button>
+                </form>
+
+                <div id="urlResult" class="result-box hidden"></div>
+            </section>
+
+            <!-- MODUL 4: IP / Domain Lookup -->
+            <section class="card full-width">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-globe"></i> IP-Manzil yoki Domen Geolyokalatsiyasi</h2>
+                    <span class="tag">GEO & ISP INFO</span>
+                </div>
+                <p class="section-desc">Server IP manzili yoki domen nomini kiritib, uning qaysi davlat, shahar va internet provayderiga tegishli ekanligini aniqlang.</p>
+
+                <form id="ipForm" class="action-form">
+                    <input type="text" id="ipInput" placeholder="Masalan: 8.8.8.8 yoki google.com" required>
+                    <button type="submit" class="cyber-btn"><i class="fa-solid fa-magnifying-glass-location"></i> Ma'lumot olish</button>
+                </form>
+
+                <div id="ipResult" class="result-box hidden"></div>
+            </section>
+
+        </main>
+
+        <footer class="app-footer">
+            <p style="font-size: 11px; color: var(--text-muted); text-align: center;">
+                <i class="fa-solid fa-lock"></i> Barcha ma'lumotlar faqat mijoz (brauzer) tomonidan xavfsiz qayta ishlanadi.
+                <br>
+                Takliflar va Savollar bo'lsa instagram orqali murojat qiling: abuvnm
+            </p>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

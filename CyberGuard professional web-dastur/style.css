@@ -1,0 +1,443 @@
+:root {
+    --bg-main: #06090e;
+    --bg-card: rgba(13, 20, 32, 0.85);
+    --border-color: rgba(0, 243, 255, 0.18);
+    --cyan: #00f3ff;
+    --green: #00ff66;
+    --yellow: #ffcc00;
+    --red: #ff0055;
+    --text-main: #e2e8f0;
+    --text-muted: #64748b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Fira Code', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 243, 255, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 20%);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Header */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-icon {
+    font-size: 32px;
+    color: var(--cyan);
+    filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.5));
+}
+
+.brand-text h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge {
+    font-size: 10px;
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.brand-text p {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--green);
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+/* Cards & Modules */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 12px;
+}
+
+.card-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-header h2 i {
+    color: var(--cyan);
+}
+
+.tag {
+    font-size: 10px;
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Inputs & Buttons */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    padding: 14px 16px;
+    border-radius: 6px;
+    color: var(--cyan);
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px rgba(0, 243, 255, 0.2);
+}
+
+.icon-btn {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.icon-btn:hover {
+    color: var(--cyan);
+}
+
+.cyber-btn {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 12px 20px;
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.cyber-btn:hover {
+    background: var(--cyan);
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+}
+
+.cyber-btn.danger {
+    border-color: var(--red);
+    color: var(--red);
+    background: rgba(255, 0, 85, 0.1);
+}
+
+.cyber-btn.danger:hover {
+    background: var(--red);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+}
+
+.cyber-btn.full {
+    width: 100%;
+}
+
+/* Strength Meter */
+.strength-meter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.meter-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.meter-bar-bg {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.meter-bar-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Crack Time Box */
+.crack-time-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    padding: 14px;
+    border-radius: 8px;
+}
+
+.crack-title {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.crack-time {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+}
+
+.crack-subtext {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.m-label {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+.m-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+}
+
+.checklist li {
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checklist li.valid {
+    color: var(--green);
+}
+
+/* Generator Module */
+.generator-output {
+    display: flex;
+    gap: 10px;
+}
+
+.gen-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+}
+
+input[type="range"] {
+    accent-color: var(--cyan);
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.section-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.action-form {
+    display: flex;
+    gap: 10px;
+}
+
+.result-box {
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.result-box.safe {
+    background: rgba(0, 255, 102, 0.1);
+    border: 1px solid var(--green);
+    color: var(--green);
+}
+
+.result-box.danger {
+    background: rgba(255, 0, 85, 0.1);
+    border: 1px solid var(--red);
+    color: var(--red);
+}
+
+.result-box.warning {
+    background: rgba(255, 204, 0, 0.1);
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--cyan);
+    color: #000;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 12px;
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.4);
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 850px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .full-width {
+        grid-column: span 1;
+    }
+    .action-form {
+        flex-direction: column;
+    }
+}

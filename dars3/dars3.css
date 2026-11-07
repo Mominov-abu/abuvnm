@@ -1,0 +1,22 @@
+#box{
+    width: 150px;
+    padding: 20px;
+    background-color: blue;
+    border-radius: 5px;
+}
+#box.active{
+    background-color: green;
+    color: azure;
+}
+#box.active1{
+    background-color: yellow;
+    color: azure;
+}
+#box.active2{
+    background-color: rgb(208, 255, 0);
+    color: azure;
+}
+#box.active3{
+    background-color: red;
+    color: azure;
+}
